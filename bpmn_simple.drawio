@@ -1,0 +1,215 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Списание бонусов" id="bonus-burning-main">
+    <mxGraphModel dx="1720" dy="1076" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3508" pageHeight="2480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pool" value="" style="shape=pool;startSize=20;horizontal=1;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;swimlaneHead=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="30" width="1050" height="715" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_mgr" value="Менеджер туроператора" style="swimlane;startSize=30;horizontal=0;" parent="pool" vertex="1">
+          <mxGeometry width="1050" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ev_start" value="1-е число&#xa;месяца" style="ellipse;aspect=fixed;whiteSpace=wrap;html=1;fontSize=10;" parent="lane_mgr" vertex="1">
+          <mxGeometry x="40" y="105" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t_get" value="Получить список&#xa;клиентов" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_mgr" vertex="1">
+          <mxGeometry x="130" y="100" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t_check" value="Проверить&#xa;корректность данных" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_mgr" vertex="1">
+          <mxGeometry x="290" y="100" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gw_empty" value="Список&#xa;пуст?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;verticalAlign=middle;" parent="lane_mgr" vertex="1">
+          <mxGeometry x="440" y="95" width="80" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t_assign" value="Передать задание&#xa;колл-центру" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_mgr" vertex="1">
+          <mxGeometry x="550" y="100" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t_report" value="Принять отчёт&#xa;об уведомлениях" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_mgr" vertex="1">
+          <mxGeometry x="760" y="135" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_mgr" source="ev_start" target="t_get" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_mgr" source="t_get" target="t_check" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_mgr" source="t_check" target="gw_empty" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="нет" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_mgr" source="gw_empty" target="t_assign" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-13" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Да&lt;/font&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="lane_mgr" vertex="1">
+          <mxGeometry x="480" y="65" width="35" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_cc" value="Сотрудник колл-центра" style="swimlane;startSize=30;horizontal=0;" parent="pool" vertex="1">
+          <mxGeometry y="260" width="1050" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="ev_cc" value="Получено&#xa;задание" style="ellipse;aspect=fixed;whiteSpace=wrap;html=1;fontSize=10;" parent="lane_cc" vertex="1">
+          <mxGeometry x="40" y="105" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t_call" value="Позвонить&#xa;клиенту" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_cc" vertex="1">
+          <mxGeometry x="130" y="100" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="lane_cc" source="gw_ans" target="oNegjbXoIkZ1ui2S4QFZ-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gw_ans" value="Клиент&#xa;ответил?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;verticalAlign=middle;" parent="lane_cc" vertex="1">
+          <mxGeometry x="400" y="60" width="80" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t_inform" value="Информировать&#xa;о сгорании баллов" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_cc" vertex="1">
+          <mxGeometry x="505" y="30" width="130" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="gw_att" value="Попыток&#xa;меньше 3?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;verticalAlign=middle;" parent="lane_cc" vertex="1">
+          <mxGeometry x="280" y="190" width="80" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t_email" value="Отправить email&#xa;и SMS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_cc" vertex="1">
+          <mxGeometry x="510" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t_mark" value="Зафиксировать&#xa;уведомление" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_cc" vertex="1">
+          <mxGeometry x="680" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t_rep2" value="Отправить отчёт&#xa;менеджеру" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_cc" vertex="1">
+          <mxGeometry x="830" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ec1" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_cc" source="ev_cc" target="t_call" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_cc" source="t_call" target="gw_ans" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="130" />
+              <mxPoint x="260" y="95" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ec3" value="да" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_cc" source="gw_ans" target="t_inform" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ec5" value="да, повторить" style="edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="lane_cc" source="gw_att" target="t_call" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="185" y="225" />
+            </Array>
+            <mxPoint x="740" y="230" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ec6" value="нет, лимит" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="lane_cc" source="gw_att" target="t_email" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="210" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="570" y="225" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ec7" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_cc" source="t_inform" target="t_email" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ec8" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_cc" source="t_email" target="t_mark" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ec9" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_cc" source="t_mark" target="t_rep2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="lane_cc" source="oNegjbXoIkZ1ui2S4QFZ-1" target="gw_att" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-1" value="Поставить напоминание о повторном звонке" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;arcSize=24;" parent="lane_cc" vertex="1">
+          <mxGeometry x="385" y="150" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-3" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Нет&lt;/font&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="lane_cc" vertex="1">
+          <mxGeometry x="440" y="130" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_cl" value="Клиент" style="swimlane;startSize=30;horizontal=0;" parent="pool" vertex="1">
+          <mxGeometry y="570" width="1050" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="t_recv" value="Принять уведомление&#xa;об истечении" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_cl" vertex="1">
+          <mxGeometry x="520" y="42.5" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t_use" value="Использовать баллы&#xa;или проигнорировать" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" parent="lane_cl" vertex="1">
+          <mxGeometry x="690" y="42.5" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ecl2" style="edgeStyle=orthogonalEdgeStyle;" parent="lane_cl" source="t_recv" target="t_use" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-31" value="" style="group" parent="lane_cl" vertex="1" connectable="0">
+          <mxGeometry x="980" y="47.5" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-32" value="" style="ellipse;aspect=fixed;whiteSpace=wrap;html=1;fontSize=10;" parent="oNegjbXoIkZ1ui2S4QFZ-31" vertex="1">
+          <mxGeometry width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-33" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="oNegjbXoIkZ1ui2S4QFZ-31" vertex="1">
+          <mxGeometry x="5" y="5" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="msg10" value="месяц ожидания" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="lane_cl" source="t_use" target="oNegjbXoIkZ1ui2S4QFZ-32" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="980" y="72.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg1" value="задание на&#xa;оповещение" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="pool" source="t_assign" target="ev_cc" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="615" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="615" y="230" />
+              <mxPoint x="65" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg2" value="отчёт" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="pool" source="t_rep2" target="t_report" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="890" y="350" />
+              <mxPoint x="825" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg3" value="звонок" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;" parent="pool" source="t_call" target="t_recv" edge="1">
+          <mxGeometry x="-0.001" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="550" />
+              <mxPoint x="440" y="550" />
+              <mxPoint x="440" y="643" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ev_end_empty" value="" style="ellipse;aspect=fixed;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="1020.0000000000002" y="60" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-18" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="1025.0000000000002" y="65" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="gw_empty" target="ev_end_empty" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="85" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-16" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Завершён&lt;/span&gt;&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;досрочно&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="950.0000000000002" y="50" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-35" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;Ожидание&lt;/span&gt;&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;1 месяц&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="950" y="160" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-21" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="1020" y="170" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-19" value="" style="ellipse;aspect=fixed;whiteSpace=wrap;html=1;fontSize=10;" parent="oNegjbXoIkZ1ui2S4QFZ-21" vertex="1">
+          <mxGeometry width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="oNegjbXoIkZ1ui2S4QFZ-20" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="oNegjbXoIkZ1ui2S4QFZ-21" vertex="1">
+          <mxGeometry x="5" y="5" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TabUUjYB5fqPMCCzVl10-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t_report" target="oNegjbXoIkZ1ui2S4QFZ-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

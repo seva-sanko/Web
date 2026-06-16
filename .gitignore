@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+**/.DS_Store
+*.bkp
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.synctex.gz
+*.toc
+*.out
+
+# Raw PNG exports (archived in img.zip)
+отчет/*.png
